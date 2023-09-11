@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temperature Converter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .custom-background {
+      background-image: url('https://imgs.search.brave.com/X2vPFQdxptEhXS5OFN3w3HVs0vzDq3vu7rnNbPTo5Oo/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTI5/OTE3MTIxL3Bob3Rv/L3RoZXJtb21ldGVy/LWF0LTQwLWRlZ3Jl/ZXMtY2xvc2UtdXAu/anBnP3M9NjEyeDYx/MiZ3PTAmaz0yMCZj/PVJmc3VjNFZrUUFr/dm8wTDdmSnNRSFh4/TlJacDE0UXRxQ0VJ/dTB0b2lER1U9');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .container {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body class="custom-background">
+  <div class="container">
+    <h1>Temperature Converter</h1>
+    <label for="celsius">Enter temperature in Celsius:</label>
+    <input type="number" id="celsius">
+    <label for="fahrenheit">Enter temperature in Fahrenheit:</label>
+    <input type="number" id="fahrenheit">
+    <label for="kelvin">Enter temperature in Kelvin:</label>
+    <input type="number" id="kelvin">
+    <br>
+    <button onclick="convertToCelsius()">Convert to Celsius</button>
+    <button onclick="convertToFahrenheit()">Convert to Fahrenheit</button>
+    <button onclick="convertToKelvin()">Convert to Kelvin</button>
+  </div>
+
+  <script>
+    function convertToFahrenheit() {
+      var celsius = parseFloat(document.getElementById("celsius").value);
+      var fahrenheit = (celsius * 9/5) + 32;
+      document.getElementById("fahrenheit").value = fahrenheit.toFixed(2);
+    }
+
+    function convertToCelsius() {
+      var fahrenheit = parseFloat(document.getElementById("fahrenheit").value);
+      var celsius = (fahrenheit - 32) * 5/9;
+      document.getElementById("celsius").value = celsius.toFixed(2);
+    }
+
+    function convertToKelvin() {
+      var celsius = parseFloat(document.getElementById("celsius").value);
+      var kelvin = celsius + 273.15;
+      document.getElementById("kelvin").value = kelvin.toFixed(2);
+    }
+  </script>
+</body>
+</html>
